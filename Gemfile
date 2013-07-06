@@ -16,6 +16,8 @@ gem "twitter-bootstrap-rails"
 gem 'twitter'
 gem 'draper'
 
+gem "rspec-rails"
+
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
