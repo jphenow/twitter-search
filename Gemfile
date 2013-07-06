@@ -28,6 +28,7 @@ gem "pry-rails"
 # Testing
 gem "rspec-rails"
 gem "factory_girl_rails"
+gem 'simplecov'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
