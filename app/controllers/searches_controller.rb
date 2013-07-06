@@ -13,4 +13,5 @@ class SearchesController < ApplicationController
       []
     end
   end
+  helper_method :results
 end
