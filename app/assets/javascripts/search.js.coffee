@@ -1,8 +1,12 @@
-$("#searchSubmit").click (e)->
+handler = (e)->
   $.ajax
     url: "/search"
     type: "POST"
     data:
       query: $("#searchField").val()
-    complete: (response, status)->
-      $('#results').html(response)
+    complete: (response)->
+      $('#results').html(response.responseText)
+  false
+
+$("#searchForm").submit handler
+$("#searchSubmit").click handler
