@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   def create
-    @results = SearchEngine.new(params[:query]).search
+    @results = SearchEngine.new(query_params[:query], location_params).search
     render "results", layout: false
   end
 
@@ -14,4 +14,12 @@ class SearchesController < ApplicationController
     end
   end
   helper_method :results
+
+  def query_params
+    params.permit :query
+  end
+
+  def location_params
+    params.permit :geocode, :latitude, :longitude
+  end
 end
