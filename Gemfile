@@ -16,6 +16,8 @@ gem "twitter-bootstrap-rails"
 gem 'twitter'
 gem 'draper'
 
+gem "pry-rails"
+
 gem "rspec-rails"
 
 gem 'turbolinks'
