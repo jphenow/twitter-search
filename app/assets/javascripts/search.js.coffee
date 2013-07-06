@@ -14,14 +14,31 @@ setHashVal = (val)->
 likeHash = (val)->
   buildHashVal(val) == getHashVal()
 
+getLocation = ->
+  if (navigator.geolocation)
+    navigator.geolocation.getCurrentPosition showPosition
+
+showPosition = (position)->
+  $("#searchLatitude").val position.coords.latitude
+  $("#searchLongitude").val position.coords.longitude
+  $("#searchGeocode").attr "disabled", false
+
+getLocation()
+
 loadResults = ->
   query = $("#searchField").val()
+  latitude = $("#searchLatitude").val()
+  longitude = $("#searchLongitude").val()
+  geocode = $("#searchGeocode").val()
   if !!query
     $.ajax
       url: "/search"
       type: "POST"
       data:
         query: query
+        geocode: geocode
+        latitude: latitude
+        longitude: longitude
       complete: (response)->
         $('#results').html response.responseText
         setHashVal query
