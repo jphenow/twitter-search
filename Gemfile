@@ -14,6 +14,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'twitter'
+gem 'draper'
 
 gem 'turbolinks'
 
