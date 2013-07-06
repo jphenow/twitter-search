@@ -1,4 +1,5 @@
-= text_field_tag :search, "", id: "searchField"
-= submit_tag "Search Tweets", id: "searchSubmit"
+= form_tag({}, id: "searchForm") do
+  = text_field_tag :search, "", id: "searchField"
+  = submit_tag "Search Tweets", id: "searchSubmit"
 
 #results
