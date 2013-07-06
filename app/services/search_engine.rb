@@ -6,6 +6,9 @@ class SearchEngine
   def search
     @search_results ||= engine.call(*query_params)
   end
+  alias statuses search
+  alias tweets search
+  alias results search
 
   private
 
