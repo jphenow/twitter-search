@@ -1,6 +1,16 @@
 class SearchesController < ApplicationController
   def create
-    @result = [params[:query]]
+    @results = SearchEngine.new(params[:query]).search
     render "results", layout: false
+  end
+
+  private
+
+  def results
+    if @results
+      @results_decorators ||= TweetDecorator.decorate_collection @results
+    else
+      []
+    end
   end
 end
