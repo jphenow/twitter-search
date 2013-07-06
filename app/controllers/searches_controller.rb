@@ -1,8 +1,6 @@
 class SearchesController < ApplicationController
   def create
-    @result = "jon"
-    respond_to do |f|
-      f.js { render partial: "results" }
-    end
+    @result = [params[:query]]
+    render "results", layout: false
   end
 end
