@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
 
   def results
     if @results
-      @results_decorators ||= TweetDecorator.decorate_collection @results
+      @results_decorators ||= StatusDecorator.decorate_collection @results
     else
       []
     end

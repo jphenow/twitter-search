@@ -1,4 +1,4 @@
-class TweetDecorator < ApplicationDecorator
+class StatusDecorator < ApplicationDecorator
   delegate_all
 
   delegate :screen_name, to: :user
