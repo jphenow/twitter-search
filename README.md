@@ -1,5 +1,7 @@
 # TwitterSearch
 
+[![Build Status](https://travis-ci.org/jphenow/twitter-search.png)](https://travis-ci.org/jphenow/twitter-search)
+
 This simple little app provides search with some simple search-with-location
 features.
 
