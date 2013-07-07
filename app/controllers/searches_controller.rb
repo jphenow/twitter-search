@@ -20,6 +20,6 @@ class SearchesController < ApplicationController
   end
 
   def location_params
-    params.permit :geocode, :latitude, :longitude
+    params.permit :geocode, :latitude, :longitude, :radius
   end
 end

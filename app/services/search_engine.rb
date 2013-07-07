@@ -45,7 +45,12 @@ class SearchEngine
   end
 
   def radius
-    "10mi"
+    "#{raw_radius}mi"
+  end
+
+  def raw_radius
+    raw = location_params[:radius].to_i
+    raw > 0 ? raw : 10
   end
 
   def geocode_param
