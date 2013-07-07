@@ -18,27 +18,46 @@ getLocation = ->
   if (navigator.geolocation)
     navigator.geolocation.getCurrentPosition showPosition
 
+enableGeocodeOptions = ->
+  $("#searchGeocode").attr "disabled", false
+  $("#searchRadius").attr "disabled", false
+
 showPosition = (position)->
   $("#searchLatitude").val position.coords.latitude
   $("#searchLongitude").val position.coords.longitude
-  $("#searchGeocode").attr "disabled", false
+  enableGeocodeOptions()
 
-getLocation()
+getQuery = ->
+  $("#searchField").val()
+
+getLatitude = ->
+  $("#searchLatitude").val()
+
+getLongitude = ->
+  $("#searchLongitude").val()
+
+getGeocode = ->
+  $("#searchGeocode").val()
+
+getRadius = ->
+  $("#searchRadius").val()
+
+loadOldResults = ->
+  $("#searchField").val getHashVal()
+  loadResults()
 
 loadResults = ->
-  query = $("#searchField").val()
-  latitude = $("#searchLatitude").val()
-  longitude = $("#searchLongitude").val()
-  geocode = $("#searchGeocode").val()
+  query = getQuery()
   if !!query
     $.ajax
       url: "/search"
       type: "POST"
       data:
         query: query
-        geocode: geocode
-        latitude: latitude
-        longitude: longitude
+        geocode: getGeocode()
+        latitude: getLatitude()
+        longitude: getLongitude()
+        radius: getRadius()
       complete: (response)->
         $('#results').html response.responseText
         setHashVal query
@@ -49,10 +68,7 @@ $("#searchForm").submit (e)->
   loadResults()
   false
 
-loadOldResults = ->
-  $("#searchField").val getHashVal()
-  loadResults()
-
-loadOldResults()
-
 window.onhashchange = loadOldResults
+
+getLocation()
+loadOldResults()
