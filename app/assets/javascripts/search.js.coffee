@@ -37,7 +37,7 @@ getLongitude = ->
   $("#searchLongitude").val()
 
 getGeocode = ->
-  $("#searchGeocode").val()
+  $("#searchGeocode").prop("checked")
 
 getRadius = ->
   $("#searchRadius").val()

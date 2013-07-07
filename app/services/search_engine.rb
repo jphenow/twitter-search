@@ -29,7 +29,7 @@ class SearchEngine
   end
 
   def geocode_truthy?
-    geocode == "1" || geocode == true
+    geocode == "1" || geocode == true || geocode == "true"
   end
 
   def geocode
